@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('property_id');
+            $table->foreignId('property_id')->constrained();
             $table->string('name', 100);
             $table->string('src', 100);
             $table->integer('order');

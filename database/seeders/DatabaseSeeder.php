@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->truncateTables(['users','rols']);
+        $this->truncateTables(['users','rols', 'properties', 'property_features']);
 
         $this->call([RoleSeeder::class,
-                     UserSeeder::class]);
+                     PropertySeeder::class]);
     }
 
     protected function truncateTables(array $tables)
