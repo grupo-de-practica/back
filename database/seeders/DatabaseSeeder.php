@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Seeders;
+
+use App\Models\ZoneType;
 use Illuminate\Support\Facades\DB;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -20,10 +22,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->truncateTables(['users','rols', 'properties', 'property_features']);
+        $this->truncateTables(['users','rols', 'properties', 'property_features', 'zone_types']);
 
         $this->call([RoleSeeder::class,
-                     PropertySeeder::class]);
+                     PropertySeeder::class,
+                     ZoneTypeSeeder::class]);
     }
 
     protected function truncateTables(array $tables)
