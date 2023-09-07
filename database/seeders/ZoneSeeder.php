@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Image;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Zone;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class ImageSeeder extends Seeder
+class ZoneSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Image::factory()->count(100)->create();
+        Zone::factory()->count(100)->create();
     }
 }

@@ -22,11 +22,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->truncateTables(['users','rols', 'properties', 'property_features', 'zone_types']);
+        $this->truncateTables(['users','rols', 'properties', 'images', 'property_features', 'zones','zone_types']);
 
         $this->call([RoleSeeder::class,
-                     PropertySeeder::class,
-                     ZoneTypeSeeder::class]);
+                     ZoneTypeSeeder::class,
+                     PropertySeeder::class, 
+                     ZoneSeeder::class,
+                     ImageSeeder::class]);
     }
 
     protected function truncateTables(array $tables)
