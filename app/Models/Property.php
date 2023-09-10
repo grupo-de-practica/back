@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Http\Resources\ZoneResource;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Collection as SupportCollection;
 
 class Property extends Model
 {
@@ -26,6 +28,14 @@ class Property extends Model
     {
         return $this->hasMany(Image::class);
     }
+
+    /**
+    * Get the zones of the property.
+    */
+    public function zones(): HasMany
+    {
+        return $this->hasMany(Zone::class);
+    }
     
     /**
     * Get the feature that owns the property.
@@ -33,5 +43,14 @@ class Property extends Model
     public function feature(): BelongsTo
     {
         return $this->belongsTo(PropertyFeature::class, 'feature_id');
+    }
+
+    /**
+    * Get the zones grouped by type.
+    */
+    public function group_zones(): SupportCollection
+    {
+        $zoneResources = ZoneResource::collection($this->zones);
+        return $zoneResources->sortBy('order')->groupBy('type.name');
     }
 }
