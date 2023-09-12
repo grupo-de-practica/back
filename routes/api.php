@@ -23,5 +23,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(PropertyController::class)->prefix('v1/{user_id}')->group(function () {
     Route::get('/properties', 'index');
-    //Route::post('/properties', 'store');
+    Route::get('/properties/{property_id}', 'show');
 });
