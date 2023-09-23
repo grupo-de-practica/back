@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * Doc: https://fakerphp.github.io/
  */
 class UserFactory extends Factory
 {
@@ -19,8 +20,7 @@ class UserFactory extends Factory
     {
         return [
             'role_id' => fake()->numberBetween(1,2),
-            'name' => fake()->firstName(),
-            'surname' => fake()->lastName(),
+            'full_name' => fake()->name(),
             'phone' => fake()->phoneNumber(),
             'email' => fake()->unique()->safeEmail(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
