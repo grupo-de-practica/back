@@ -5,16 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Resources\PropertyResource;
-use Hamcrest\Arrays\IsArray;
-use Hamcrest\Core\IsCollectionContaining;
-use Hamcrest\Core\IsNot;
+use App\Http\Resources\PropertyWithUserResource;
+
 
 use function PHPUnit\Framework\isNull;
 
 class PropertyController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of properties by user.
      */
     public function index(string $user_id)
     {
@@ -29,6 +28,18 @@ class PropertyController extends Controller
         else{
             return response(["message" => "Properties not found."], 404);  
         }
+    }
+
+    /**
+     * Display a listing of all properties.
+     */
+    public function all()
+    {
+        $properties = Property::all();
+        
+        $resourcesProperties = new PropertyWithUserResource($properties);
+
+        return response($resourcesProperties->collection($properties), 200);
     }
 
     /**

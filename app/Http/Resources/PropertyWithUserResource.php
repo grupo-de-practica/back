@@ -3,10 +3,11 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\UserResource;
 use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PropertyResource extends JsonResource
+class PropertyWithUserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -26,6 +27,7 @@ class PropertyResource extends JsonResource
             'zones' => $this->group_zones(),
             'type' => $this->type,
             'requirements' => json_decode($this->requirements),
+            'user' => new UserResource($this->user),
             'is_published' => $this->is_published,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at

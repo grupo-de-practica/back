@@ -25,3 +25,7 @@ Route::controller(PropertyController::class)->prefix('v1/{user_id}')->group(func
     Route::get('/properties', 'index');
     Route::get('/properties/{property_id}', 'show');
 });
+
+Route::controller(PropertyController::class)->prefix('v1')->group(function () {
+    Route::get('/properties/all', 'all');
+});
