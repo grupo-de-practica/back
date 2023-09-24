@@ -19,7 +19,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'role_id' => fake()->numberBetween(1,2),
+            'role_id' => fake()->numberBetween(1,2,3),
             'full_name' => fake()->name(),
             'phone' => fake()->phoneNumber(),
             'email' => fake()->unique()->safeEmail(),

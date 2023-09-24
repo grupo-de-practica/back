@@ -19,7 +19,7 @@ class PropertyFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(['role_id'=>2]),
+            'user_id' => User::factory(['role_id'=>1]),
             'feature_id' => PropertyFeature::factory(), 
             'address' => fake()->address(),
             'latitude' => fake()->latitude($min = -90, $max = 90),
