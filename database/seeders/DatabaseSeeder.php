@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Province;
 use Illuminate\Support\Facades\DB;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,14 +22,15 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->truncateTables(['users','rols', 'properties', 'images', 'property_features', 'zones','zone_types', 'countries']);
+        $this->truncateTables(['users','rols', 'properties', 'images', 'property_features', 'zones','zone_types', 'countries', 'provinces']);
 
         $this->call([RoleSeeder::class,
                      ZoneTypeSeeder::class,
                      PropertySeeder::class, 
                      ZoneSeeder::class,
                      ImageSeeder::class,
-                     CountrySeeder::class]);
+                     CountrySeeder::class,
+                     ProvinceSeeder::class]);
     }
 
     protected function truncateTables(array $tables)
