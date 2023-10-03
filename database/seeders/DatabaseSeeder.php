@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
 use App\Models\Province;
 use Illuminate\Support\Facades\DB;
 
@@ -15,14 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        $this->truncateTables(['users','rols', 'properties', 'images', 'property_features', 'zones','zone_types', 'countries', 'provinces']);
+        $this->truncateTables(['users','rols', 'properties', 'images', 'property_features', 'zones','zone_types', 'countries', 'provinces', 'cities']);
 
         $this->call([RoleSeeder::class,
                      ZoneTypeSeeder::class,
@@ -30,7 +24,8 @@ class DatabaseSeeder extends Seeder
                      ZoneSeeder::class,
                      ImageSeeder::class,
                      CountrySeeder::class,
-                     ProvinceSeeder::class]);
+                     ProvinceSeeder::class,
+                     CitySeeder::class]);
     }
 
     protected function truncateTables(array $tables)
