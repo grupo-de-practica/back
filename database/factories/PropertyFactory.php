@@ -20,7 +20,8 @@ class PropertyFactory extends Factory
     {
         return [
             'user_id' => User::factory(['role_id'=>1]),
-            'feature_id' => PropertyFeature::factory(), 
+            'feature_id' => PropertyFeature::factory(),
+            'city_id' => fake()->numberBetween(1, 1245), 
             'address' => fake()->address(),
             'latitude' => fake()->latitude($min = -90, $max = 90),
             'longitude' => fake()->longitude($min = -180, $max = 180),

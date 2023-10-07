@@ -46,6 +46,14 @@ class Property extends Model
     }
 
     /**
+    * Get the city that owns the property.
+    */
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    /**
     * Get the zones grouped by type.
     */
     public function group_zones(): SupportCollection

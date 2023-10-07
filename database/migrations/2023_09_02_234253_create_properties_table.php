@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('feature_id')->constrained(table: 'property_features', indexName: 'feature_id');
+            $table->foreignId('city_id')->constrained();
             $table->string('address', 150);
             $table->decimal('latitude', 11, 8);
             $table->decimal('longitude', 11, 8);
