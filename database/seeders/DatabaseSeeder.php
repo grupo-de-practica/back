@@ -20,12 +20,13 @@ class DatabaseSeeder extends Seeder
 
         $this->call([RoleSeeder::class,
                      ZoneTypeSeeder::class,
+                     CountrySeeder::class,
+                     ProvinceSeeder::class,
+                     CitySeeder::class,
                      PropertySeeder::class, 
                      ZoneSeeder::class,
                      ImageSeeder::class,
-                     CountrySeeder::class,
-                     ProvinceSeeder::class,
-                     CitySeeder::class]);
+                   ]);
     }
 
     protected function truncateTables(array $tables)

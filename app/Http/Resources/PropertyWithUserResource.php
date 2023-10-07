@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
+use App\Http\Resources\CityResource;
 use App\Http\Resources\ImageResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,6 +20,7 @@ class PropertyWithUserResource extends JsonResource
         return [
             'id' => $this->id,
             'address' => $this->address,
+            'city' => new CityResource($this->city),
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
             'price' => $this->price,
