@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PropertyController;
+use App\Models\Country;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +30,8 @@ Route::controller(PropertyController::class)->prefix('v1/{user_id}')->group(func
 
 Route::controller(PropertyController::class)->prefix('v1')->group(function () {
     Route::get('/properties/all', 'all');
+});
+
+Route::controller(CountryController::class)->prefix('v1')->group(function () {
+    Route::get('/countries', 'index');
 });
